@@ -29,7 +29,7 @@ object Intergate {
       return sum
    }
 
-   fun NewtonCotes(f: (Double) -> Double, xs: Double, xe: Double, dx: Double): Double {
+   fun simpson(f: (Double) -> Double, xs: Double, xe: Double, dx: Double): Double {
       var sum: Double = 0.0
       var x: Double = xs
       while (x < xe) {
@@ -39,7 +39,7 @@ object Intergate {
       return dx / 6 * sum
    }
 
-   fun NewtonCotes(xs: DoubleArray, ys: DoubleArray): Double {
+   fun simpson(xs: DoubleArray, ys: DoubleArray): Double {
       assert(xs.size == ys.size)
       var sum: Double = 0.0
       for (i in 0 until xs.size - 1) {
@@ -49,7 +49,7 @@ object Intergate {
       return sum
    }
 
-   fun NewtonCotes(f: (Double) -> Double, xs: DoubleArray): Double {
+   fun simpson(f: (Double) -> Double, xs: DoubleArray): Double {
       var sum: Double = 0.0
       for (i in 0 until xs.size - 1) {
          val dx = xs[i + 1] - xs[i]
