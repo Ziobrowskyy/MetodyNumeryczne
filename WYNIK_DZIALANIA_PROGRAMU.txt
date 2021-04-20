@@ -1,0 +1,96 @@
+####################
+Zadanie 3.
+Kwadratura dla funkcji wielomianowerj o współczynnikach podanych w pliku
+--------------------
+Wartość całki obliczona za pomocą WolframAlpha: 193.12
+--------------------
+Metoda trapezów:
+--------------------
+Podane wartości węzłów wielomianu oraz wartości funkcji w nich
+193.115333
+Wielomian odliczany metodą nawiną i stałym krokiem dx = 0.1
+193.101328
+Wielomian obliczany metodą Hornera oraz stałym krokiem dx = 0.1
+193.101328
+Wielomian obliczany metodą Hornera oraz dla podanych węzłów nierównoodległych
+192.690121
+--------------------
+Metoda Simpsona:
+--------------------
+Podane wartości węzłów wielomianu oraz wartości funkcji w nich
+193.115333
+Wielomian odliczany metodą naiwną i stałym krokiem dx = 0.1
+193.120001
+Wielomian obliczany metodą Hornera oraz stałym krokiem dx = 0.1
+193.120001
+Wielomian obliczany metodą Hornera oraz dla podanych węzłów nierównoodległych
+193.120096
+####################
+####################
+Zadanie 4.
+Kwadratura dla funkcji x^2 sin^3(x)
+--------------------
+Wartość całki obliczona za pomocą WolframAlpha: -4.402597402
+--------------------
+Metoda trapezów:
+--------------------
+Funkcja obliczana ze stałym krokiem dx = 0.1
+-4.419801
+Funkcja obliczana ze stałym krokiem dx = 0.01
+-4.592925
+Funkcja obliczana ze stałym krokiem dx = 0.001
+-4.421504
+--------------------
+Sprawdzanie dla jakiej wartości kroku błąd otrzymajnej wartości jest mniejszy od 1.0E-4
+Różnica wartści dla wielkości kroku 0.1 wynosi 0.017203274801927293
+Różnica wartści dla wielkości kroku 0.01 wynosi 0.19032778946519446
+Różnica wartści dla wielkości kroku 0.001 wynosi 0.018906835394207455
+Różnica wartści dla wielkości kroku 1.0E-4 wynosi 2.057709334479796E-5
+--------------------
+Metoda Simpsona:
+--------------------
+Funkcja obliczana ze stałym krokiem dx = 0.1
+-4.402572
+Funkcja obliczana ze stałym krokiem dx = 0.01
+-4.592756
+Funkcja obliczana ze stałym krokiem dx = 0.001
+-4.421503
+--------------------
+Sprawdzanie dla jakiej wartości kroku błąd otrzymajnej wartości jest mniejszy od 1.0E-4
+Różnica wartści dla wielkości kroku 0.1 wynosi 2.580192091716782E-5
+####################
+####################
+Zadanie 5.
+Kwadratura dla funkcji exp(x^2)(x-1)
+--------------------
+Wartość całki obliczona za pomocą WolframAlpha: -32.905255531
+--------------------
+Metoda trapezów:
+--------------------
+Funkcja obliczana ze stałym krokiem dx = 0.1
+-33.267918
+Funkcja obliczana ze stałym krokiem dx = 0.01
+-32.908895
+Funkcja obliczana ze stałym krokiem dx = 0.001
+-32.850557
+--------------------
+Sprawdzanie dla jakiej wartości kroku błąd otrzymajnej wartości jest mniejszy od 1.0E-4
+Różnica wartści dla wielkości kroku 0.1 wynosi 0.36266215172968685
+Różnica wartści dla wielkości kroku 0.01 wynosi 0.0036397432301598087
+Różnica wartści dla wielkości kroku 0.001 wynosi 0.054698602160222265
+Różnica wartści dla wielkości kroku 1.0E-4 wynosi 0.00546081628436923
+Różnica wartści dla wielkości kroku 1.0E-5 wynosi 2.9615918606396008E-9
+--------------------
+Metoda Simpsona:
+--------------------
+Funkcja obliczana ze stałym krokiem dx = 0.1
+-32.905586
+Funkcja obliczana ze stałym krokiem dx = 0.01
+-32.905256
+Funkcja obliczana ze stałym krokiem dx = 0.001
+-32.850521
+--------------------
+Sprawdzanie dla jakiej wartości kroku błąd otrzymajnej wartości jest mniejszy od 1.0E-4
+Różnica wartści dla wielkości kroku 0.1 wynosi 3.308109134181336E-4
+Różnica wartści dla wielkości kroku 0.01 wynosi 3.337692788818458E-8
+####################
