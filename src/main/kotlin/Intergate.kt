@@ -20,7 +20,6 @@ object Intergate {
    }
 
    fun trapeze(f: (Double) -> Double, xs: DoubleArray): Double {
-      assert(xs.size == ys.size)
       var sum: Double = 0.0
       for (i in 0 until xs.size - 1) {
          val dx = xs[i + 1] - xs[i]
@@ -49,7 +48,6 @@ object Intergate {
       return sum
    }
    fun NewtonCotes(f: (Double) -> Double, xs: DoubleArray): Double {
-      assert(xs.size == ys.size)
       var sum: Double = 0.0
       for (i in 0 until xs.size - 1) {
          val dx = xs[i + 1] - xs[i]
