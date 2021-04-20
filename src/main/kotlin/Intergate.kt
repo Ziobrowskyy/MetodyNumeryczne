@@ -23,6 +23,7 @@ object Intergate {
       var sum: Double = 0.0
       for (i in 0 until xs.size - 1) {
          val dx = xs[i + 1] - xs[i]
+         // 0.5 * h * (a + b)
          sum += 0.5 * dx * (f(xs[i]) + f(xs[i + 1]))
       }
       return sum
@@ -47,11 +48,12 @@ object Intergate {
       }
       return sum
    }
+
    fun NewtonCotes(f: (Double) -> Double, xs: DoubleArray): Double {
       var sum: Double = 0.0
       for (i in 0 until xs.size - 1) {
          val dx = xs[i + 1] - xs[i]
-         sum += dx / 6 * (f(xs[i]) + 4.0 * (f(xs[i] + dx * 0.5 )) + f(xs[i + 1]))
+         sum += dx / 6 * (f(xs[i]) + 4.0 * (f(xs[i] + dx * 0.5)) + f(xs[i + 1]))
       }
       return sum
    }
