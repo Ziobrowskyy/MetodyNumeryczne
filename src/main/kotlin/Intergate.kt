@@ -51,7 +51,7 @@ object Intergate {
       var sum: Double = 0.0
       for (i in 0 until xs.size - 1) {
          val dx = xs[i + 1] - xs[i]
-         sum += dx / 6 * (f(xs[i]) + 4.0 * 0.5 * (f(xs[i]) + f(xs[i + 1])) + f(xs[i + 1]))
+         sum += dx / 6 * (f(xs[i]) + 4.0 * (f(xs[i] + dx * 0.5 )) + f(xs[i + 1]))
       }
       return sum
    }
