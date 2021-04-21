@@ -6,8 +6,9 @@ fun printlnDouble(x: Double) {
 
 
 fun main(args: Array<String>) {
-   Tasks.Task3.run()
-   Tasks.Task4.run()
-   Tasks.Task5.run()
+//   Lab6.Task3.run()
+//   Lab6.Task4.run()
+//   Lab6.Task5.run()
+   Lab7.Task1.run()
 }
 

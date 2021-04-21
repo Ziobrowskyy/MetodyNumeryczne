@@ -1,5 +1,3 @@
-package Tasks
-
 abstract class Task {
    abstract val name: String
    protected abstract fun runTask(): Unit

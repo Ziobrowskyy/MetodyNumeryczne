@@ -1,4 +1,38 @@
-object Intergate {
+object Integrate {
+   private fun legendre(f: (Double) -> Double, xs: Double, xe: Double, xis: DoubleArray, Ais: DoubleArray): Double {
+      assert(xis.size == Ais.size)
+      val dx: Double = xe - xs
+      val tis = xis.map { x -> dx / 2 * x + (xs + xe) / 2 }.toDoubleArray()
+      var sum: Double = 0.0
+      for (i in tis.indices) {
+         sum += Ais[i] * f(tis[i])
+      }
+      return sum * dx / 2
+   }
+   fun legendre2(f: (Double) -> Double, xs: Double, xe: Double): Double {
+      val xis: DoubleArray = doubleArrayOf(-0.57735, .57735)
+      val Ais: DoubleArray = doubleArrayOf(1.0, 1.0)
+      return legendre(f, xs, xe, xis, Ais)
+   }
+
+   fun legendre3(f: (Double) -> Double, xs: Double, xe: Double): Double {
+      val xis: DoubleArray = doubleArrayOf(-0.774597, .0, .774597)
+      val Ais: DoubleArray = doubleArrayOf(5.0 / 9.0, 8.0 / 9.0, 5.0 / 9.0)
+      return legendre(f, xs, xe, xis, Ais)
+   }
+
+   fun legendre4(f: (Double) -> Double, xs: Double, xe: Double): Double {
+      val xis: DoubleArray = doubleArrayOf(-0.861136, -0.339981, 0.339981, 0.861136)
+      val Ais: DoubleArray = doubleArrayOf(0.347855, 0.652145, 0.652145, 0.347855)
+      return legendre(f, xs, xe, xis, Ais)
+   }
+
+   fun legendre5(f: (Double) -> Double, xs: Double, xe: Double): Double {
+      val xis: DoubleArray = doubleArrayOf(-0.906180, -0.538469, .0, 0.538469, 0.906180)
+      val Ais: DoubleArray = doubleArrayOf(0.236927, 0.478629, 0.568889, 0.478629, 0.236927)
+      return legendre(f, xs, xe, xis, Ais)
+   }
+
    fun trapeze(f: (Double) -> Double, xs: Double, xe: Double, dx: Double): Double {
       var sum: Double = 0.0
       var x: Double = xs

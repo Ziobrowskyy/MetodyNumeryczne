@@ -1,6 +1,7 @@
-package Tasks
+package Lab6
 
 import Functions
+import Task
 import printlnDouble
 
 object Task3 : Task(){
@@ -15,16 +16,16 @@ object Task3 : Task(){
       printThinSeparator()
 
       println("Podane wartości węzłów wielomianu oraz wartości funkcji w nich")
-      printlnDouble(Intergate.trapeze(Data.xs, Data.ys))
+      printlnDouble(Integrate.trapeze(Data.xs, Data.ys))
 
       println("Wielomian odliczany metodą nawiną i stałym krokiem dx = 0.1")
-      printlnDouble(Intergate.trapeze(Functions::poly, -2.0, 2.0, .1))
+      printlnDouble(Integrate.trapeze(Functions::poly, -2.0, 2.0, .1))
 
       println("Wielomian obliczany metodą Hornera oraz stałym krokiem dx = 0.1")
-      printlnDouble(Intergate.trapeze(Functions.makeHorner(Data.polyCoof), -2.0, 2.0, .1))
+      printlnDouble(Integrate.trapeze(Functions.makeHorner(Data.polyCoof), -2.0, 2.0, .1))
 
       println("Wielomian obliczany metodą Hornera oraz dla podanych węzłów nierównoodległych")
-      printlnDouble(Intergate.trapeze(Functions.makeHorner(Data.polyCoof), Data.xsNonEquidistant))
+      printlnDouble(Integrate.trapeze(Functions.makeHorner(Data.polyCoof), Data.xsNonEquidistant))
 
       printThinSeparator()
 
@@ -32,16 +33,16 @@ object Task3 : Task(){
       printThinSeparator()
 
       println("Podane wartości węzłów wielomianu oraz wartości funkcji w nich")
-      printlnDouble(Intergate.simpson(Data.xs, Data.ys))
+      printlnDouble(Integrate.simpson(Data.xs, Data.ys))
 
       println("Wielomian odliczany metodą naiwną i stałym krokiem dx = 0.1")
-      printlnDouble(Intergate.simpson(Functions::poly, -2.0, 2.0, .1))
+      printlnDouble(Integrate.simpson(Functions::poly, -2.0, 2.0, .1))
 
       println("Wielomian obliczany metodą Hornera oraz stałym krokiem dx = 0.1")
-      printlnDouble(Intergate.simpson(Functions.makeHorner(Data.polyCoof), -2.0, 2.0, .1))
+      printlnDouble(Integrate.simpson(Functions.makeHorner(Data.polyCoof), -2.0, 2.0, .1))
 
       println("Wielomian obliczany metodą Hornera oraz dla podanych węzłów nierównoodległych")
-      printlnDouble(Intergate.simpson(Functions.makeHorner(Data.polyCoof), Data.xsNonEquidistant))
+      printlnDouble(Integrate.simpson(Functions.makeHorner(Data.polyCoof), Data.xsNonEquidistant))
 
    }
 }

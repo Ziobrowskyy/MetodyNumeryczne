@@ -1,0 +1,46 @@
+####################
+Obliczanie wartości kwadratury podanych funkcji za pomocą kwadratury Gaussa-Legendre'a
+--------------------
+n = 1
+--------------------
+Funkcja liniowa
+86.666657
+Funkcja sinusowa
+-0.666093
+Funkcja exp
+-15.174653
+Funkcja wielomianowa
+190.844469
+--------------------
+n = 2
+--------------------
+Funkcja liniowa
+86.666676
+Funkcja sinusowa
+-3.672173
+Funkcja exp
+-26.273775
+Funkcja wielomianowa
+193.119981
+--------------------
+n = 3
+--------------------
+Funkcja liniowa
+86.666663
+Funkcja sinusowa
+-5.665855
+Funkcja exp
+-31.161043
+Funkcja wielomianowa
+193.120005
+--------------------
+n = 4
+--------------------
+86.666708
+Funkcja sinusowa
+-4.036178
+Funkcja exp
+-32.547136
+Funkcja wielomianowa
+193.120104
+####################
