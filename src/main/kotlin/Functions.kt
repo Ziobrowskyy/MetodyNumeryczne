@@ -23,7 +23,6 @@ object Functions {
 
    fun poly(x: Double): Double {
       return 0.4 * x.pow(4) + 5.0 * x.pow(3) - 6.0 * x.pow(2) - 2.0 * x + 55.0
-
    }
 
    fun withSinus(x: Double): Double {
