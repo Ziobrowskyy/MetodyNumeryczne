@@ -19,13 +19,13 @@ object Task3 : Task(){
       printlnDouble(Integrate.trapeze(Data.xs, Data.ys))
 
       println("Wielomian odliczany metodą nawiną i stałym krokiem dx = 0.1")
-      printlnDouble(Integrate.trapeze(Functions::poly, -2.0, 2.0, .1))
+      printlnDouble(Integrate.trapeze(-2.0, 2.0, .1, Functions::poly))
 
       println("Wielomian obliczany metodą Hornera oraz stałym krokiem dx = 0.1")
-      printlnDouble(Integrate.trapeze(Functions.makeHorner(Data.polyCoof), -2.0, 2.0, .1))
+      printlnDouble(Integrate.trapeze(-2.0, 2.0, .1, Functions.makeHorner(Data.polyCoof)))
 
       println("Wielomian obliczany metodą Hornera oraz dla podanych węzłów nierównoodległych")
-      printlnDouble(Integrate.trapeze(Functions.makeHorner(Data.polyCoof), Data.xsNonEquidistant))
+      printlnDouble(Integrate.trapeze(Data.xsNonEquidistant, Functions.makeHorner(Data.polyCoof)))
 
       printThinSeparator()
 
@@ -36,13 +36,13 @@ object Task3 : Task(){
       printlnDouble(Integrate.simpson(Data.xs, Data.ys))
 
       println("Wielomian odliczany metodą naiwną i stałym krokiem dx = 0.1")
-      printlnDouble(Integrate.simpson(Functions::poly, -2.0, 2.0, .1))
+      printlnDouble(Integrate.simpson(-2.0, 2.0, .1, Functions::poly))
 
       println("Wielomian obliczany metodą Hornera oraz stałym krokiem dx = 0.1")
-      printlnDouble(Integrate.simpson(Functions.makeHorner(Data.polyCoof), -2.0, 2.0, .1))
+      printlnDouble(Integrate.simpson(-2.0, 2.0, .1, Functions.makeHorner(Data.polyCoof)))
 
       println("Wielomian obliczany metodą Hornera oraz dla podanych węzłów nierównoodległych")
-      printlnDouble(Integrate.simpson(Functions.makeHorner(Data.polyCoof), Data.xsNonEquidistant))
+      printlnDouble(Integrate.simpson(Data.xsNonEquidistant, Functions.makeHorner(Data.polyCoof)))
 
    }
 }

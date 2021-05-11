@@ -18,11 +18,11 @@ object Task4 : Task() {
       printThinSeparator()
 
       println("Funkcja obliczana ze stałym krokiem dx = 0.1")
-      printlnDouble(Integrate.trapeze(Functions::withSinus, .0, 4.5, .1))
+      printlnDouble(Integrate.trapeze(.0, 4.5, .1, Functions::withSinus))
       println("Funkcja obliczana ze stałym krokiem dx = 0.01")
-      printlnDouble(Integrate.trapeze(Functions::withSinus, .0, 4.5, .01))
+      printlnDouble(Integrate.trapeze(.0, 4.5, .01, Functions::withSinus))
       println("Funkcja obliczana ze stałym krokiem dx = 0.001")
-      printlnDouble(Integrate.trapeze(Functions::withSinus, .0, 4.5, .001))
+      printlnDouble(Integrate.trapeze(.0, 4.5, .001, Functions::withSinus))
 
       printThinSeparator()
 
@@ -30,7 +30,7 @@ object Task4 : Task() {
       var step: Double = 1.0
       do {
          step /= 10
-         val result = Integrate.trapeze(Functions::withSinus, .0, 4.5, step)
+         val result = Integrate.trapeze(.0, 4.5, step, Functions::withSinus)
          val diff = abs(expectedValue-result)
          println("Różnica wartści dla wielkości kroku $step wynosi $diff")
       } while (diff >= epsilon)
@@ -40,18 +40,18 @@ object Task4 : Task() {
       printThinSeparator()
 
       println("Funkcja obliczana ze stałym krokiem dx = 0.1")
-      printlnDouble(Integrate.simpson(Functions::withSinus, .0, 4.5, .1))
+      printlnDouble(Integrate.simpson(.0, 4.5, .1, Functions::withSinus))
       println("Funkcja obliczana ze stałym krokiem dx = 0.01")
-      printlnDouble(Integrate.simpson(Functions::withSinus, .0, 4.5, .01))
+      printlnDouble(Integrate.simpson(.0, 4.5, .01, Functions::withSinus))
       println("Funkcja obliczana ze stałym krokiem dx = 0.001")
-      printlnDouble(Integrate.simpson(Functions::withSinus, .0, 4.5, .001))
+      printlnDouble(Integrate.simpson(.0, 4.5, .001, Functions::withSinus))
       printThinSeparator()
 
       println("Sprawdzanie dla jakiej wartości kroku błąd otrzymajnej wartości jest mniejszy od $epsilon")
       step = 1.0
       do {
          step /= 10
-         val result = Integrate.simpson(Functions::withSinus, .0, 4.5, step)
+         val result = Integrate.simpson(.0, 4.5, step, Functions::withSinus)
          val diff = abs(expectedValue-result)
          println("Różnica wartści dla wielkości kroku $step wynosi $diff")
       } while (diff >= epsilon)
