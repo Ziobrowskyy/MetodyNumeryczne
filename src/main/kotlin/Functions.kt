@@ -3,7 +3,7 @@ import kotlin.math.pow
 import kotlin.math.sin
 
 object Functions {
-    fun makeHorner(coof: DoubleArray, reversed: Boolean = false): (Double) -> Double {
+    fun horner(coof: DoubleArray, reversed: Boolean = false): (Double) -> Double {
 
         fun horner(x: Double): Double {
             var sum: Double = coof.first()
