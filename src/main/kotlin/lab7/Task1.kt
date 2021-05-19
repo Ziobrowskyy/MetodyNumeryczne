@@ -17,7 +17,7 @@ object Task1 : Task() {
       println("Funkcja exp")
       printlnDouble(Integrate.legendre2(-2.0, 2.0, Functions::withExponent))
       println("Funkcja wielomianowa")
-      printlnDouble(Integrate.legendre2(-2.0, 2.0, Functions.horner(Data.polyCoof)))
+      printlnDouble(Integrate.legendre2(-2.0, 2.0, Functions.horner(Data7.polyCoof)))
 
       printThinSeparator()
       println("n = 2")
@@ -30,7 +30,7 @@ object Task1 : Task() {
       println("Funkcja exp")
       printlnDouble(Integrate.legendre3(-2.0, 2.0, Functions::withExponent))
       println("Funkcja wielomianowa")
-      printlnDouble(Integrate.legendre3(-2.0, 2.0, Functions.horner(Data.polyCoof)))
+      printlnDouble(Integrate.legendre3(-2.0, 2.0, Functions.horner(Data7.polyCoof)))
 
       printThinSeparator()
       println("n = 3")
@@ -43,7 +43,7 @@ object Task1 : Task() {
       println("Funkcja exp")
       printlnDouble(Integrate.legendre4(-2.0, 2.0, Functions::withExponent))
       println("Funkcja wielomianowa")
-      printlnDouble(Integrate.legendre4(-2.0, 2.0, Functions.horner(Data.polyCoof)))
+      printlnDouble(Integrate.legendre4(-2.0, 2.0, Functions.horner(Data7.polyCoof)))
 
       printThinSeparator()
       println("n = 4")
@@ -55,6 +55,6 @@ object Task1 : Task() {
       println("Funkcja exp")
       printlnDouble(Integrate.legendre5(-2.0, 2.0, Functions::withExponent))
       println("Funkcja wielomianowa")
-      printlnDouble(Integrate.legendre5(-2.0, 2.0, Functions.horner(Data.polyCoof)))
+      printlnDouble(Integrate.legendre5(-2.0, 2.0, Functions.horner(Data7.polyCoof)))
    }
 }

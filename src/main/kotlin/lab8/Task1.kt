@@ -17,7 +17,7 @@ object Task1 : Task() {
 	Narysuj wykresy otrzymanych elementów bazowych
 	 */
 	override fun runTask() {
-		val base = Data.getBaseXVectors(3)
+		val base = Orthogonalization.getBaseXVectors(3)
 		println("Wektory bazy:")
 		base.print()
 
@@ -45,12 +45,12 @@ object Task1 : Task() {
 		printThinSeparator()
 
 		println("Na przedziale (-1, 1)")
-		println(Orthogonalization.orthogonalizationCheck(orthogonalGS, -1.0, 1.0))
+		println(Orthogonalization.orthogonalityCheck(orthogonalGS, -1.0, 1.0))
 		printThinSeparator()
 
 		println("Na przedziale (0, 1)")
 		val orthogonal2 = Orthogonalization.grahmSchmidt(base, 0.0, 1.0)
-		println(Orthogonalization.orthogonalizationCheck(orthogonal2, 0.0, 1.0))
+		println(Orthogonalization.orthogonalityCheck(orthogonal2, 0.0, 1.0))
 		printThinSeparator()
 
 		println("Dla algorytmu trojczlonowego:")
@@ -58,11 +58,11 @@ object Task1 : Task() {
 
 		println("Na przedziale (-1, 1)")
 		val orthogonalTC2 = Orthogonalization.triModule(base,-1.0,1.0)
-		println(Orthogonalization.orthogonalizationCheck(orthogonalTC2, -1.0, 1.0))
+		println(Orthogonalization.orthogonalityCheck(orthogonalTC2, -1.0, 1.0))
 		printThinSeparator()
 
 		println("Na przedziale (0, 1)")
-		println(Orthogonalization.orthogonalizationCheck(orthogonalTC, 0.0, 1.0))
+		println(Orthogonalization.orthogonalityCheck(orthogonalTC, 0.0, 1.0))
 		printThinSeparator()
 	}
 }

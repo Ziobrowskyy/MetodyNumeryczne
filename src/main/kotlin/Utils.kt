@@ -54,7 +54,7 @@ fun vectorToString(array: DoubleArray): String {
         sb.append(String.format(Locale.ENGLISH, "%.4f", array[i]))
         sb.append(",")
     }
-    sb.append(array.last())
+    sb.append(String.format(Locale.ENGLISH, "%.4f", array.last()))
     sb.append("]")
     return sb.toString()
 }

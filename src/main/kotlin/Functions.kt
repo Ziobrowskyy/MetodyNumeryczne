@@ -3,6 +3,7 @@ import kotlin.math.pow
 import kotlin.math.sin
 
 object Functions {
+    
     fun horner(coof: DoubleArray, reversed: Boolean = false): (Double) -> Double {
 
         fun horner(x: Double): Double {
@@ -27,7 +28,9 @@ object Functions {
         else
             ::horner
     }
-
+    fun sinEPoly(x: Double): Double {
+        return sin(-x) + Math.E.pow(-x) - x.pow(3)
+    }
     fun lin(x: Double): Double {
         return x.pow(2) + 2 * x + 10.0
     }
