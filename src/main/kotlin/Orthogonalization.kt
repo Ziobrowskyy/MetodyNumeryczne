@@ -6,25 +6,34 @@ object Orthogonalization {
 		return Matrix(n, isTriangular = true) { i, j -> if (i == j) 1.0 else 0.0 }
 	}
 	
-	fun orthogonalizationDefault(fMatrix: Matrix, f: (x: Double) -> Double) {
-		val aMatrix = Matrix(fMatrix.m, fMatrix.n)
-		val bVector = Vector(fMatrix.m)
-		
-		fMatrix.forEach { it.reverse() }
-		for (i in 0 until fMatrix.n) {
-			for (j in 0 until fMatrix.m) {
-				aMatrix[i, j] =
-					Integrate.simpson(0.0, 1.0, 0.01) { x ->
-						fMatrix[i, j]
-					}
-			}
-		}
-		aMatrix.print()
-		
-	}
 	
-	fun grahmSchmidt(xs: Double = -1.0, xe: Double = 1.0, f: (x: Double) -> Double) {
-//       val gVector = Vector()
+	fun middleSquares(baseMatrix: Matrix, a: Double, b: Double) {
+//		val aValues = doubleArrayOf()
+//		val bVector = Vector(baseMatrix.m)
+//		val fPIntegrationValues = mutableListOf<Double>()
+//		val pIntegrationValues = mutableListOf<Double>()
+//
+//		//lambda helpers
+//
+//		val getFPIntegration = { i: Int ->
+//		}
+//
+//		val getPIntegration = {i: Int ->
+//		}
+//
+//		val alpha = {i: Int ->
+//		}
+//		baseMatrix.forEach { it.reverse() }
+//		for (i in 0 until baseMatrix.n) {
+//			for (j in 0 until baseMatrix.m) {
+//				aMatrix[i, j] =
+//					Integrate.simpson(0.0, 1.0, 0.01) { x ->
+//						baseMatrix[i, j]
+//					}
+//			}
+//		}
+//		aMatrix.print()
+		
 	}
 	
 	fun grahmSchmidt(fMatrix: Matrix, xs: Double = -1.0, xe: Double = 1.0): Matrix {
@@ -67,19 +76,17 @@ object Orthogonalization {
 		
 		//helper lambdas
 		val getPIntegrationValue = { i: Int ->
-			pIntegrationValues.getOrElse(i) { index ->
-				pIntegrationValues.add(i, Integrate.simpson(a, b) { x ->
-					Functions.horner(pMatrix[index], true)(x) * Functions.horner(pMatrix[index], true)(x)
-				})
-				return@getOrElse pIntegrationValues[index]
+			pIntegrationValues.getOrSet(i) {
+				Integrate.simpson(a, b) { x ->
+					Functions.horner(pMatrix[i], true)(x) * Functions.horner(pMatrix[i], true)(x)
+				}
 			}
 		}
 		val getPXIntegrationValue = { i: Int->
-			pXIntegrationValues.getOrElse(i) { index ->
-				pXIntegrationValues.add(index, Integrate.simpson(a, b) { x ->
-					x * Functions.horner(pMatrix[index], true)(x) * Functions.horner(pMatrix[index], true)(x)
-				})
-				return@getOrElse pXIntegrationValues[index]
+			pXIntegrationValues.getOrSet(i) {
+				Integrate.simpson(a, b) { x ->
+					x * Functions.horner(pMatrix[i], true)(x) * Functions.horner(pMatrix[i], true)(x)
+				}
 			}
 		}
 		
