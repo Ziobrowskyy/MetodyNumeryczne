@@ -20,34 +20,5 @@ object Approximation {
         //solve using gaussian elimination method and return
         return Gauss.elimination(aMatrix, bVector)
     }
-    /*
-    fun middleSquares(baseMatrix: Matrix, a: Double, b: Double) {
-//		val aValues = doubleArrayOf()
-//		val bVector = Vector(baseMatrix.m)
-//		val fPIntegrationValues = mutableListOf<Double>()
-//		val pIntegrationValues = mutableListOf<Double>()
-//
-//		//lambda helpers
-//
-//		val getFPIntegration = { i: Int ->
-//		}
-//
-//		val getPIntegration = {i: Int ->
-//		}
-//
-//		val alpha = {i: Int ->
-//		}
-//		baseMatrix.forEach { it.reverse() }
-//		for (i in 0 until baseMatrix.n) {
-//			for (j in 0 until baseMatrix.m) {
-//				aMatrix[i, j] =
-//					Integrate.simpson(0.0, 1.0, 0.01) { x ->
-//						baseMatrix[i, j]
-//					}
-//			}
-//		}
-//		aMatrix.print()
 
-	}
-     */
 }

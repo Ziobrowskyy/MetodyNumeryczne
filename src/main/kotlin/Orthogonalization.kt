@@ -14,7 +14,7 @@ object Orthogonalization {
 		
 		for (i in 1 until fMatrix.n) {
 			
-			gMatrix[i] = fMatrix[i]
+			gMatrix[i] = fMatrix[i].clone()
 			
 			for (j in 0 until i) {
 				val upper = Integrate.simpson(xs, xe) { x ->
