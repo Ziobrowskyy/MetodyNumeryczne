@@ -1,9 +1,11 @@
 package lab9
 
+import Functions
 import Task
+import vectorToString
 
 object Task1 : Task() {
-	override val name: String = "Obliczanie wartosci kwadratury podanych funkcji za pomoca kwadratury Gaussa-Legendre'a"
+	override val name: String = "Aproksymacja funkcji z wykorzystaniem bazy standardowej oraz baz zortogonalizowanych"
 	/*
 	1 Zaimplementuj algorytm ortogonalizacji Grama-Schmidta dla bazy
 	standardowej 1, x, x2, . . . w przestrzeni L2p[a, b], gdzie p(x) = 1
@@ -17,20 +19,39 @@ object Task1 : Task() {
 	Narysuj wykresy otrzymanych elementów bazowych
 	 */
 	override fun runTask() {
-		val base = Orthogonalization.getBaseXVectors(4)
+		val base = Orthogonalization.getBaseXVectors(5)
 		println("Wektory bazy:")
 		base.print()
-
 		printThinSeparator()
-		
-		val orthogonalTC = Orthogonalization.triModule(base, -1.0, 1.0)
 
-		println("Baza zortogonalizowana:")
+		println("Bazy zortogonalizowane")
+		printThinSeparator()
+
+		println("metodą Grahma-Schmidta:")
+		val orthogonalGS = Orthogonalization.grahmSchmidt(base, -1.0, 1.0)
+		orthogonalGS.print()
+		printThinSeparator()
+
+		println("metodą trójczłonową:")
+		val orthogonalTC = Orthogonalization.triModule(base, -1.0, 1.0)
 		orthogonalTC.print()
 		printThinSeparator()
-		
-		println("Na przedziale (-1, 1)")
-		println(Orthogonalization.orthogonalityCheck(orthogonalTC, -1.0, 1.0))
+
+		printThickSeparator()
+
+		println("Aproksymacja funkcji")
+		printThinSeparator()
+
+		println("Z wykorzystaniem bazy standardowej:")
+		println(vectorToString(Approximation.middleSquares(base, -1.0, 1.0, Functions::sinEPoly)))
+		printThinSeparator()
+
+		println("Z wykorzystaniem bazy zortogonalizowanej metodą Grahma-Schmitda:")
+		println(vectorToString(Approximation.middleSquares(orthogonalGS, -1.0, 1.0, Functions::sinEPoly)))
+		printThinSeparator()
+
+		println("Z wykorzystaniem bazy zortogonalizowanej metodą trójczłonową:")
+		println(vectorToString(Approximation.middleSquares(orthogonalTC, -1.0, 1.0, Functions::sinEPoly)))
 		printThinSeparator()
 	}
 }
