@@ -3,7 +3,7 @@ package lab8
 import Task
 
 object Task1 : Task() {
-	override val name: String = "Obliczanie wartosci kwadratury podanych funkcji za pomoca kwadratury Gaussa-Legendre'a"
+	override val name: String = "Ortogonalizacja baz z wykorzystaniem metody Grahma-Schmitda i metody trójczłonowej"
 	/*
 	1 Zaimplementuj algorytm ortogonalizacji Grama-Schmidta dla bazy
 	standardowej 1, x, x2, . . . w przestrzeni L2p[a, b], gdzie p(x) = 1
