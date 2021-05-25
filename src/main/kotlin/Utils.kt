@@ -59,8 +59,8 @@ fun vectorToString(array: DoubleArray): String {
     return sb.toString()
 }
 
-fun <E> MutableList<E>.getOrSet(i: Int, f: (Int) -> E): E =
-    this.getOrElse(i) { _ ->
-        this.add(i, f(i))
-        this[i]
+fun <E> MutableList<E>.getOrSet(index: Int, defaultValue: (Int) -> E): E =
+    this.getOrElse(index) { _ ->
+        this.add(index, defaultValue(index))
+        this[index]
     }
