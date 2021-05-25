@@ -2,6 +2,7 @@ package lab9
 
 import Functions
 import Task
+import vectorToFunctionString
 import vectorToString
 
 object Task1 : Task() {
@@ -35,6 +36,7 @@ object Task1 : Task() {
 		println("metodą trójczłonową:")
 		val orthogonalTC = Orthogonalization.triModule(base, -1.0, 1.0)
 		orthogonalTC.print()
+
 		printThinSeparator()
 
 		printThickSeparator()
@@ -43,15 +45,24 @@ object Task1 : Task() {
 		printThinSeparator()
 
 		println("Z wykorzystaniem bazy standardowej:")
-		println(vectorToString(Approximation.middleSquares(base, -1.0, 1.0, Functions::sinEPoly)))
+		val baseSolution = Approximation.middleSquares(base, -1.0, 1.0, Functions::sinEPoly)
+		println(vectorToString(baseSolution))
+		println(vectorToFunctionString(baseSolution, base))
+
 		printThinSeparator()
 
 		println("Z wykorzystaniem bazy zortogonalizowanej metodą Grahma-Schmitda:")
-		println(vectorToString(Approximation.middleSquares(orthogonalGS, -1.0, 1.0, Functions::sinEPoly)))
+		val gsSolution = Approximation.middleSquares(orthogonalGS, -1.0, 1.0, Functions::sinEPoly)
+		println(vectorToString(gsSolution))
+		println(vectorToFunctionString(gsSolution, orthogonalGS))
+
 		printThinSeparator()
 
 		println("Z wykorzystaniem bazy zortogonalizowanej metodą trójczłonową:")
-		println(vectorToString(Approximation.middleSquares(orthogonalTC, -1.0, 1.0, Functions::sinEPoly)))
+		val tcSolution = Approximation.middleSquares(orthogonalTC, -1.0, 1.0, Functions::sinEPoly)
+		println(vectorToString(tcSolution))
+		println(vectorToFunctionString(tcSolution, orthogonalTC))
+
 		printThinSeparator()
 	}
 }
