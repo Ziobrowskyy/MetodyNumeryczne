@@ -2,17 +2,25 @@ import java.lang.StringBuilder
 import java.util.*
 import kotlin.math.max
 
-class Matrix(
+data class Matrix(
     val n: Int = 3,
     val m: Int = n,
     val isTriangular: Boolean = false,
-    fillFunction: (i: Int, j: Int) -> Double
+    private val fillFunction: (i: Int, j: Int) -> Double
 ) : Iterable<Vector> {
+
     constructor(n: Int = 3, m: Int = n, isTriangular: Boolean = false, fillValue: Double = 0.0) : this(
         n,
         m,
         isTriangular,
         { _, _ -> fillValue }
+    )
+
+    constructor(values: Array<Vector>) : this(
+        n = values.size,
+        m = values.first().size,
+        isTriangular = false,
+        { i, j -> values[i][j] }
     )
 
     private val data: Array<Vector> = if (isTriangular) {
@@ -37,6 +45,10 @@ class Matrix(
         data.forEach {
             println(vectorToString(it))
         }
+    }
+
+    override fun toString(): String {
+        return data.map { vectorToString(it) }.reduce { acc, s -> acc.plus(s).plus('\n') }
     }
 
     override fun iterator(): Iterator<Vector> = this.data.iterator()
