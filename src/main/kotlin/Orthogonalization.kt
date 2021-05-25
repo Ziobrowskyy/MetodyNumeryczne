@@ -5,36 +5,7 @@ object Orthogonalization {
 	fun getBaseXVectors(n: Int): Matrix {
 		return Matrix(n, isTriangular = true) { i, j -> if (i == j) 1.0 else 0.0 }
 	}
-	
-	
-	fun middleSquares(baseMatrix: Matrix, a: Double, b: Double) {
-//		val aValues = doubleArrayOf()
-//		val bVector = Vector(baseMatrix.m)
-//		val fPIntegrationValues = mutableListOf<Double>()
-//		val pIntegrationValues = mutableListOf<Double>()
-//
-//		//lambda helpers
-//
-//		val getFPIntegration = { i: Int ->
-//		}
-//
-//		val getPIntegration = {i: Int ->
-//		}
-//
-//		val alpha = {i: Int ->
-//		}
-//		baseMatrix.forEach { it.reverse() }
-//		for (i in 0 until baseMatrix.n) {
-//			for (j in 0 until baseMatrix.m) {
-//				aMatrix[i, j] =
-//					Integrate.simpson(0.0, 1.0, 0.01) { x ->
-//						baseMatrix[i, j]
-//					}
-//			}
-//		}
-//		aMatrix.print()
-		
-	}
+
 	
 	fun grahmSchmidt(fMatrix: Matrix, xs: Double = -1.0, xe: Double = 1.0): Matrix {
 		val gMatrix = Matrix(fMatrix.n, fMatrix.m)
@@ -55,12 +26,8 @@ object Orthogonalization {
 				
 				gMatrix[i] -= gMatrix[j] * (upper / lower)
 
-//                for (k in gMatrix[i].indices) {
-//                    gMatrix[i, k] -= gMatrix[j, k] * upper / lower;
-//                }
 			}
 
-//            gMatrix[i] = gCoof
 		}
 		
 		return gMatrix
@@ -73,33 +40,34 @@ object Orthogonalization {
 		val xVector = doubleArrayOf(0.0, 1.0)
 		val pIntegrationValues = mutableListOf<Double>()
 		val pXIntegrationValues = mutableListOf<Double>()
-		
 		//helper lambdas
-		val getPIntegrationValue = { i: Int ->
-			pIntegrationValues.getOrSet(i) {
-				Integrate.simpson(a, b) { x ->
-					Functions.horner(pMatrix[i], true)(x) * Functions.horner(pMatrix[i], true)(x)
-				}
-			}
-		}
-		val getPXIntegrationValue = { i: Int->
-			pXIntegrationValues.getOrSet(i) {
-				Integrate.simpson(a, b) { x ->
-					x * Functions.horner(pMatrix[i], true)(x) * Functions.horner(pMatrix[i], true)(x)
-				}
-			}
-		}
 		
 		val beta = { i: Int ->
-			val betaUpper = getPXIntegrationValue(i-1)
-			val betaLower = getPIntegrationValue(i-1)
+			val betaUpper = pXIntegrationValues.getOrSet(i-1) {
+				Integrate.simpson(a, b) { x ->
+					x * Functions.horner(pMatrix[i-1], true)(x) * Functions.horner(pMatrix[i-1], true)(x)
+				}
+			}
+			val betaLower = pIntegrationValues.getOrSet(i-1) {
+				Integrate.simpson(a, b) { x ->
+					Functions.horner(pMatrix[i-1], true)(x) * Functions.horner(pMatrix[i-1], true)(x)
+				}
+			}
 			
 			-betaUpper / betaLower
 		}
 		
 		val gamma = { i: Int ->
-			val gammaUpper = getPIntegrationValue(i-1)
-			val gammaLower = getPIntegrationValue(i-2)
+			val gammaUpper = pIntegrationValues.getOrSet(i-1) {
+				Integrate.simpson(a, b) { x ->
+					Functions.horner(pMatrix[i-1], true)(x) * Functions.horner(pMatrix[i-1], true)(x)
+				}
+			}
+			val gammaLower = pIntegrationValues.getOrSet(i-2) {
+				Integrate.simpson(a, b) { x ->
+					Functions.horner(pMatrix[i-2], true)(x) * Functions.horner(pMatrix[i-2], true)(x)
+				}
+			}
 			-gammaUpper / gammaLower
 		}
 		
