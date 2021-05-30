@@ -1,6 +1,6 @@
-import java.lang.StringBuilder
+import utils.StringUtils.vectorToString
+import utils.Vector
 import java.util.*
-import kotlin.math.max
 
 data class Matrix(
     val n: Int = 3,

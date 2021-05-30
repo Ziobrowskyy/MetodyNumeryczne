@@ -1,3 +1,9 @@
+package numericalMethods
+
+import Functions
+import Matrix
+import utils.Vector
+
 object Approximation {
     fun middleSquares(base: Matrix, a: Double, b: Double, function: (Double) -> Double): Vector {
         //pre-calculate functions of base using horner method
@@ -16,7 +22,10 @@ object Approximation {
                 baseFunctions[i](x) * function(x)
             }
         }
-
+//        println("A:")
+//        aMatrix.print()
+//        println("B:")
+//        println(vectorToString(bVector))
         //solve using gaussian elimination method and return
         return Gauss.elimination(aMatrix, bVector)
     }

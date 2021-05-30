@@ -1,8 +1,9 @@
-package lab2
+package labs.lab2
 
 import Matrix
+import numericalMethods.Gauss
 import Task
-import vectorToString
+import utils.StringUtils.vectorToString
 
 object Task1 : Task() {
 	override val name: String = "Obliczanie wartosci kwadratury podanych funkcji za pomoca kwadratury Gaussa-Legendre'a"

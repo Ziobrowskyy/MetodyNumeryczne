@@ -1,4 +1,12 @@
+package numericalMethods
+
+import Functions
+import Matrix
+import utils.CollectionUtils.getOrSet
+import utils.DoubleUtils.equals
 import kotlin.math.pow
+import utils.VectorUtils.minusAssign
+import utils.VectorUtils.times
 
 object Orthogonalization {
 	
@@ -45,12 +53,12 @@ object Orthogonalization {
 		val beta = { i: Int ->
 			val betaUpper = pXIntegrationValues.getOrSet(i-1) {
 				Integrate.simpson(a, b) { x ->
-					x * Functions.horner(pMatrix[i-1], true)(x) * Functions.horner(pMatrix[i-1], true)(x)
+					x * Functions.horner(pMatrix[i - 1], true)(x) * Functions.horner(pMatrix[i - 1], true)(x)
 				}
 			}
 			val betaLower = pIntegrationValues.getOrSet(i-1) {
 				Integrate.simpson(a, b) { x ->
-					Functions.horner(pMatrix[i-1], true)(x) * Functions.horner(pMatrix[i-1], true)(x)
+					Functions.horner(pMatrix[i - 1], true)(x) * Functions.horner(pMatrix[i - 1], true)(x)
 				}
 			}
 			
@@ -60,12 +68,12 @@ object Orthogonalization {
 		val gamma = { i: Int ->
 			val gammaUpper = pIntegrationValues.getOrSet(i-1) {
 				Integrate.simpson(a, b) { x ->
-					Functions.horner(pMatrix[i-1], true)(x) * Functions.horner(pMatrix[i-1], true)(x)
+					Functions.horner(pMatrix[i - 1], true)(x) * Functions.horner(pMatrix[i - 1], true)(x)
 				}
 			}
 			val gammaLower = pIntegrationValues.getOrSet(i-2) {
 				Integrate.simpson(a, b) { x ->
-					Functions.horner(pMatrix[i-2], true)(x) * Functions.horner(pMatrix[i-2], true)(x)
+					Functions.horner(pMatrix[i - 2], true)(x) * Functions.horner(pMatrix[i - 2], true)(x)
 				}
 			}
 			-gammaUpper / gammaLower

@@ -1,3 +1,7 @@
+package numericalMethods
+
+import Matrix
+import utils.Vector
 import kotlin.math.abs
 
 object Gauss {

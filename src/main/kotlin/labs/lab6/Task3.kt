@@ -1,8 +1,9 @@
-package lab6
+package labs.lab6
 
 import Functions
+import numericalMethods.Integrate
 import Task
-import printlnDouble
+import utils.DoubleUtils.printlnDouble
 
 object Task3 : Task(){
    override val name: String = "Zadanie 3. \nKwadratura dla funkcji wielomianowerj o współczynnikach podanych w pliku"
@@ -16,16 +17,16 @@ object Task3 : Task(){
       printThinSeparator()
 
       println("Podane wartości węzłów wielomianu oraz wartości funkcji w nich")
-      printlnDouble(Integrate.trapeze(Data6.xs, Data6.ys))
+      printlnDouble(Integrate.trapeze(Data.xs, Data.ys))
 
       println("Wielomian odliczany metodą nawiną i stałym krokiem dx = 0.1")
       printlnDouble(Integrate.trapeze(-2.0, 2.0, .1, Functions::poly))
 
       println("Wielomian obliczany metodą Hornera oraz stałym krokiem dx = 0.1")
-      printlnDouble(Integrate.trapeze(-2.0, 2.0, .1, Functions.horner(Data6.polyCoof)))
+      printlnDouble(Integrate.trapeze(-2.0, 2.0, .1, Functions.horner(Data.polyCoof)))
 
       println("Wielomian obliczany metodą Hornera oraz dla podanych węzłów nierównoodległych")
-      printlnDouble(Integrate.trapeze(Data6.xsNonEquidistant, Functions.horner(Data6.polyCoof)))
+      printlnDouble(Integrate.trapeze(Data.xsNonEquidistant, Functions.horner(Data.polyCoof)))
 
       printThinSeparator()
 
@@ -33,16 +34,16 @@ object Task3 : Task(){
       printThinSeparator()
 
       println("Podane wartości węzłów wielomianu oraz wartości funkcji w nich")
-      printlnDouble(Integrate.simpson(Data6.xs, Data6.ys))
+      printlnDouble(Integrate.simpson(Data.xs, Data.ys))
 
       println("Wielomian odliczany metodą naiwną i stałym krokiem dx = 0.1")
       printlnDouble(Integrate.simpson(-2.0, 2.0, .1, Functions::poly))
 
       println("Wielomian obliczany metodą Hornera oraz stałym krokiem dx = 0.1")
-      printlnDouble(Integrate.simpson(-2.0, 2.0, .1, Functions.horner(Data6.polyCoof)))
+      printlnDouble(Integrate.simpson(-2.0, 2.0, .1, Functions.horner(Data.polyCoof)))
 
       println("Wielomian obliczany metodą Hornera oraz dla podanych węzłów nierównoodległych")
-      printlnDouble(Integrate.simpson(Data6.xsNonEquidistant, Functions.horner(Data6.polyCoof)))
+      printlnDouble(Integrate.simpson(Data.xsNonEquidistant, Functions.horner(Data.polyCoof)))
 
    }
 }

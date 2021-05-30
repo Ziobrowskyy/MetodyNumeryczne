@@ -1,9 +1,11 @@
-package lab9
+package labs.lab9
 
 import Functions
+import numericalMethods.Approximation
+import numericalMethods.Orthogonalization
 import Task
-import vectorToFunctionString
-import vectorToString
+import utils.StringUtils.vectorToFunctionString
+import utils.StringUtils.vectorToString
 
 object Task1 : Task() {
 	override val name: String = "Aproksymacja funkcji z wykorzystaniem bazy standardowej oraz baz zortogonalizowanych"
