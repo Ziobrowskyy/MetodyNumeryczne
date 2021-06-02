@@ -1,8 +1,8 @@
 package labs.lab9
 
 import Functions
-import numericalMethods.Approximation
-import numericalMethods.Orthogonalization
+import numerical.Approximation
+import numerical.Orthogonalization
 import Task
 import utils.StringUtils.vectorToFunctionString
 import utils.StringUtils.vectorToString

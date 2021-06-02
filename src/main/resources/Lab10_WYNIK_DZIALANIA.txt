@@ -1,0 +1,59 @@
+####################
+Wyznaczanie miejsc zerowych funckji oraz pochodnych
+--------------------
+Miejsca zerowe dla funkcji y = x^3 + x^2 -3x -3
+--------------------
+Metoda Newtona z podana analitycznie pochodna:
+1.7320509291469053
+Metoda Newtona z pochodna wyznaczona numerycznie:
+1.7320517696391562
+Metoda bisekcji:
+1.7320507764816284
+Metoda siecznych:
+-0.9999999248430577
+Metoda regula falsi:
+1.732050711687749
+--------------------
+####################
+Miejsca zerowe dla funkcji y = x^2 - 2
+--------------------
+Metoda Newtona z podana analitycznie pochodna:
+1.4142135658496038
+Metoda Newtona z pochodna wyznaczona numerycznie:
+1.4142135658496038
+Metoda bisekcji:
+1.41421377658844
+Metoda siecznych:
+1.414213555052622
+Metoda regula falsi:
+1.4142133225488518
+--------------------
+####################
+Miejsca zerowe dla funkcji y = sin(x^2) - x^2
+--------------------
+Metoda Newtona z podana analitycznie pochodna:
+-1.2757879569648084E-4
+Metoda Newtona z pochodna wyznaczona numerycznie:
+-0.001254188772155311
+Metoda bisekcji:
+-0.0045000000000000005
+Metoda siecznych:
+0.002101898666465927
+Metoda regula falsi:
+0.002101898666465927
+--------------------
+####################
+Miejsca zerowe dla funkcji y = sin(x^2) - x^2 + 1/2
+--------------------
+Metoda Newtona z podana analitycznie pochodna:
+1.2236428353985391
+Metoda Newtona z pochodna wyznaczona numerycznie:
+1.2236421647387814
+Metoda bisekcji:
+1.2236422300338745
+Metoda siecznych:
+1.2236422628584798
+Metoda regula falsi:
+1.2236418774492306
+--------------------
+####################

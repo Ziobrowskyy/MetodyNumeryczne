@@ -2,7 +2,7 @@ package labs.lab7
 
 import Task
 import Functions
-import numericalMethods.Integrate
+import numerical.Integrate
 import utils.DoubleUtils.printlnDouble
 
 object Task1 : Task() {

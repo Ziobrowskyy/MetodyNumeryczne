@@ -1,6 +1,5 @@
-package numericalMethods
+package numerical
 
-import labs.lab10.Data
 import utils.CollectionUtils.middle
 import utils.DoubleUtils.equals
 import kotlin.math.abs
@@ -9,7 +8,7 @@ object ZeroCrossing {
     private const val maxIterations = 500
     private const val epsilon = 1e-6
 
-    fun newton(f: (Double) -> Double, df: (Double) -> Double, range: ClosedRange<Double>): Double? {
+    fun newton(range: ClosedRange<Double>, f: (Double) -> Double, df: (Double) -> Double): Double? {
         var x: Double = range.middle
         for (i in 0 until maxIterations) {
             val xPrime = x - f(x) / df(x)
@@ -20,12 +19,12 @@ object ZeroCrossing {
         return null
     }
 
-    fun newton(f: (Double) -> Double, range: ClosedRange<Double>): Double? {
+    fun newton(range: ClosedRange<Double>, f: (Double) -> Double): Double? {
         val df = Derivative.ofFunction(f, range.middle)
-        return newton(f, df, range)
+        return newton(range, f, df)
     }
 
-    fun secant(f: (Double) -> Double, range: ClosedRange<Double>): Double? {
+    fun secant(range: ClosedRange<Double>, f: (Double) -> Double): Double? {
         var x0 = range.start
         var x1 = range.endInclusive
         if ((f(x1) - f(x0)).equals(0.0, epsilon)) {
@@ -45,7 +44,7 @@ object ZeroCrossing {
         return null
     }
 
-    fun falsePosition(f: (Double) -> Double, range: ClosedRange<Double>): Double? {
+    fun falsePosition(range: ClosedRange<Double>, f: (Double) -> Double): Double? {
         var a = range.start
         var b = range.endInclusive
         if ((f(b) - f(a)).equals(0.0, epsilon)) {
@@ -67,7 +66,7 @@ object ZeroCrossing {
         return null
     }
 
-    fun bisection(f: (Double) -> Double, range: ClosedRange<Double>): Double? {
+    fun bisection(range: ClosedRange<Double>, f: (Double) -> Double): Double? {
         var x0 = range.start
         var x1 = range.endInclusive
 //        if (x0 * x1 >= 0)

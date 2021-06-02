@@ -1,4 +1,4 @@
-package numericalMethods
+package numerical
 
 import Matrix
 import utils.Vector

@@ -1,4 +1,4 @@
-package numericalMethods
+package numerical
 
 import utils.CollectionUtils.lenght
 

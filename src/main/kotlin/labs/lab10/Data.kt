@@ -32,11 +32,11 @@ object Data {
         return 2.0 * x * cos(x.pow(2)) - 2.0 * x
     }
 
-    fun function4thDeriv(x: Double): Double {
-        return 2.0 * x * cos(x.pow(2)) - 2.0 * x
-    }
-
     fun function4th(x: Double): Double {
         return sin(x.pow(2)) - x.pow(2) + 0.5
+    }
+
+    fun function4thDeriv(x: Double): Double {
+        return 2.0 * x * cos(x.pow(2)) - 2.0 * x
     }
 }

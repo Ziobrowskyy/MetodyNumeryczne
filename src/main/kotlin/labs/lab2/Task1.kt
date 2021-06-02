@@ -1,7 +1,7 @@
 package labs.lab2
 
 import Matrix
-import numericalMethods.Gauss
+import numerical.Gauss
 import Task
 import utils.StringUtils.vectorToString
 

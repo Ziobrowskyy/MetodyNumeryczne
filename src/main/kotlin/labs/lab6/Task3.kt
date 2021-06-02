@@ -1,7 +1,7 @@
 package labs.lab6
 
 import Functions
-import numericalMethods.Integrate
+import numerical.Integrate
 import Task
 import utils.DoubleUtils.printlnDouble
 

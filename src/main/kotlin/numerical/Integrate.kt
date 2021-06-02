@@ -1,4 +1,4 @@
-package numericalMethods
+package numerical
 
 object Integrate {
    private fun legendre(xs: Double, xe: Double, xis: DoubleArray, Ais: DoubleArray, f: (x: Double) -> Double): Double {

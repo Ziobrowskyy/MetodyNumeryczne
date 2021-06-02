@@ -1,29 +1,28 @@
 package labs.lab10
 
 import Task
-import numericalMethods.ZeroCrossing
+import numerical.ZeroCrossing
 
 object Task1 : Task() {
     override val name: String = "Wyznaczanie miejsc zerowych funckji oraz pochodnych"
 
     private fun testFun(range: ClosedRange<Double>, f: (Double) -> Double, df: ((Double) -> Double)? = null) {
         printThinSeparator()
-
         if (df != null) {
-            println("Metodą Newtona z podaną analitycznie pochodną:")
-            println(ZeroCrossing.newton(f, df, range))
+            println("Metoda Newtona z podana analitycznie pochodna:")
+            println(ZeroCrossing.newton(range, f, df))
         }
-        println("Metodą Newtona z pochodną wyznaczoną numerycznie:")
-        println(ZeroCrossing.newton(f, range))
+        println("Metoda Newtona z pochodna wyznaczona numerycznie:")
+        println(ZeroCrossing.newton(range, f))
 
-        println("Metodą bisekcji:")
-        println(ZeroCrossing.bisection(f, range))
+        println("Metoda bisekcji:")
+        println(ZeroCrossing.bisection(range, f))
 
-        println("Metodą siecznych:")
-        println(ZeroCrossing.secant(f, range))
+        println("Metoda siecznych:")
+        println(ZeroCrossing.secant(range, f))
 
-        println("Metodą regula falsi:")
-        println(ZeroCrossing.falsePosition(f, range))
+        println("Metoda regula falsi:")
+        println(ZeroCrossing.falsePosition(range, f))
 
         printThinSeparator()
     }
@@ -34,7 +33,7 @@ object Task1 : Task() {
         printThickSeparator()
 
         println("Miejsca zerowe dla funkcji y = x^2 - 2")
-        testFun((0.0..5.0), Data::function2nd)
+        testFun((0.0..5.0), Data::function2nd, Data::function2ndDeriv)
         printThickSeparator()
 
         println("Miejsca zerowe dla funkcji y = sin(x^2) - x^2")
@@ -44,6 +43,5 @@ object Task1 : Task() {
         println("Miejsca zerowe dla funkcji y = sin(x^2) - x^2 + 1/2")
         testFun((0.0..5.0), Data::function4th,Data::function4thDeriv)
         printThickSeparator()
-        println(ZeroCrossing.secant(Data::g, (10.0..30.0)))
     }
 }

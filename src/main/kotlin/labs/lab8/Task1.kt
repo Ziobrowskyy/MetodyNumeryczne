@@ -1,6 +1,6 @@
 package labs.lab8
 
-import numericalMethods.Orthogonalization
+import numerical.Orthogonalization
 import Task
 
 object Task1 : Task() {
