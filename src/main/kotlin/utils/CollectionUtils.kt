@@ -12,6 +12,6 @@ object CollectionUtils {
         }
     val ClosedRange<Double>.middle
         get() = (start + endInclusive) * 0.5
-    val ClosedRange<Double>.lenght
+    val ClosedRange<Double>.length
         get() = endInclusive-start
 }

@@ -7,6 +7,7 @@ import labs.lab8.Task1 as lab8
 import labs.lab9.Task1 as lab9
 import labs.lab10.Task1 as lab10
 import labs.lab11.Task1 as lab11
+import labs.lab12.Task1 as lab12
 
 fun main(args: Array<String>) {
 //    lab2.run()
@@ -17,5 +18,6 @@ fun main(args: Array<String>) {
 //    lab8.run()
 //    lab9.run()
 //    lab10.run()
-    lab11.run()
+//    lab11.run()
+    lab12.run()
 }
