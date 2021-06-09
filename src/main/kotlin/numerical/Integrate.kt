@@ -42,17 +42,18 @@ object Integrate {
     fun monteCarlo(range: ClosedRange<Double>, dx: Double, f: (x: Double) -> Double): Double {
         var sum: Double = 0.0
         var x: Double = range.start
-        while(x <= range.endInclusive) {
-            sum += dx * f(Random.nextDouble(range.start,range.endInclusive))
+        while (x <= range.endInclusive) {
+            sum += dx * f(Random.nextDouble(range.start, range.endInclusive))
             x += dx
         }
         return sum
     }
+
     fun monteCarloSecureRandom(range: ClosedRange<Double>, dx: Double, f: (x: Double) -> Double): Double {
         var sum: Double = 0.0
         var x: Double = range.start
         val random = java.security.SecureRandom()
-        while(x <= range.endInclusive) {
+        while (x <= range.endInclusive) {
             sum += dx * f(random.nextDouble() * range.length + range.start)
             x += dx
         }
